@@ -22,6 +22,9 @@ export const commentController = async (req, res) => {
     })
 
   } catch (error) {
-    res.status(400).send("comment controller error", error);
+    res.json({
+      error,
+      message:"Comment controller error"
+    }).status(400);
   }
 };

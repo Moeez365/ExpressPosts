@@ -5,8 +5,11 @@ export const postController = async(req, res) =>{
         const data = req.body;
         const post = await Post(data);
         await post.save();
-        res.json(post).status(400)
+        res.json(post).status(201);
     } catch (error) {
-        console.log("post controller error", error)
+        res.json({
+            error,
+            message:"post controller error"
+        }).status(400);
     }
 }
